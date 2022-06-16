@@ -33,8 +33,15 @@ class TicTacToeTests: XCTestCase {
         
         XCTAssertNotEqual(currentValue, expectedValue)
     }
-    //    Players cannot play on a played position.
-    func testPlayedPosition(){
+    
+//    TODO: If all nine squares are filled and neither player has three in a row, the game is a draw.
+    func testIsGameDraw(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "X", "O",
+                                 "O", "X", "X",
+                                 "X", "O", "O"]
+        XCTAssertFalse(self.sut.checkForVictory("X"))
+        XCTAssertFalse(self.sut.checkForVictory("O"))
         
     }
 }
