@@ -64,13 +64,13 @@ class ViewController: UIViewController {
     //    what if X goes first. It should accept X as first move
     func addValueToBoard(sender: UIButton){
         print("kk:\(sender.titleLabel)")
-//        for the first time boardValue will be empty
+        //        for the first time boardValue will be empty
         if(self.boardValueas[sender.tag] == ""){
             if(currentTurn == Turn.Dot){
                 self.boardValueas[sender.tag] = DOT
                 sender.setTitle(DOT, for: .normal)
                 currentTurn = Turn.Cross
-//                Always X goes first
+                //                Always X goes first
             }else if(currentTurn == Turn.Cross){
                 self.boardValueas[sender.tag] = CROSS
                 sender.setTitle(CROSS, for: .normal)
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         }
     }
     
-//    Check for all nine squares are filled or not
+    //    Check for all nine squares are filled or not
     func fullBoard() -> Bool{
         for value in self.boardValueas{
             if value == ""{
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         return true
     }
     
-//    what if One player has three in a row, horizontally, vertically or diagonally
+    //   Check one player has three in a row, horizontally, vertically or diagonally and if not Draw
     func checkForVictory(_ str : String) -> Bool{
         return false
     }
