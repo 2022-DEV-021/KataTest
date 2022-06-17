@@ -60,4 +60,21 @@ class TicTacToeTests: XCTestCase {
                                  "O", "X", "X"]
         XCTAssert(self.sut.checkForVictory("O"))
     }
+    
+    // test for cross Vertical Victory
+    func testCrossVerticalVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "O", "X",
+                                 "X", "O", "O",
+                                 "X", "X", "O"]
+        XCTAssert(self.sut.checkForVictory("X"))
+    }
+    // test for dot Vertical Victory
+    func testDotVerticalVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "O", "X",
+                                 "O", "O", "X",
+                                 "X", "O", "O"]
+        XCTAssert(self.sut.checkForVictory("O"))
+    }
 }

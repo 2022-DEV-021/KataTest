@@ -67,7 +67,6 @@ class ViewController: UIViewController {
         if checkForVictory(DOT){
             print("Dot won the match")
         }
-        
     }
     
     //    what if X goes first. It should accept X as first move
@@ -100,8 +99,8 @@ class ViewController: UIViewController {
     
     //   Check one player has three in a row, horizontally, vertically or diagonally and if not Draw
     func checkForVictory(_ str : String) -> Bool{
-        //        str is either X or O though we need to check position(location) and X 0r O
         
+        //        str is either X or O though we need to check position(location) and X 0r O
         if checkForXorO(0, str) && checkForXorO(1, str) && checkForXorO(2, str){
             return true
         }
@@ -111,9 +110,13 @@ class ViewController: UIViewController {
         if checkForXorO(6, str) && checkForXorO(7, str) && checkForXorO(8, str){
             return true
         }
+        
+//        TODO: Need to check vertical position
+        
         return false
     }
-    //    Check for XORO
+    
+    //    Check for X or O
     func checkForXorO(_ index: Int, _ xORo: String) -> Bool{
         return self.boardValueas[index] == xORo
     }
