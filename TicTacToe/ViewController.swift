@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     @IBAction func gameActions(_ sender: UIButton) {
         self.addValueToBoard(sender: sender)
         
-        //        Check for Draw
+        // Check for Draw
         if(fullBoard()){
             print("Draw\(self.fullBoard())")
         }
@@ -63,6 +63,11 @@ class ViewController: UIViewController {
         if checkForVictory(CROSS){
             print("Cross won the match")
         }
+        // Check for DOT
+        if checkForVictory(DOT){
+            print("Dot won the match")
+        }
+        
     }
     
     //    what if X goes first. It should accept X as first move
