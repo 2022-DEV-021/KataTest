@@ -55,9 +55,13 @@ class ViewController: UIViewController {
     @IBAction func gameActions(_ sender: UIButton) {
         self.addValueToBoard(sender: sender)
         
-        
+        //        Check for Draw
         if(fullBoard()){
             print("Draw\(self.fullBoard())")
+        }
+        // Check for CROSS
+        if checkForVictory(CROSS){
+            print("Cross won the match")
         }
     }
     
@@ -91,7 +95,22 @@ class ViewController: UIViewController {
     
     //   Check one player has three in a row, horizontally, vertically or diagonally and if not Draw
     func checkForVictory(_ str : String) -> Bool{
+        //        str is either X or O though we need to check position(location) and X 0r O
+        
+        if checkForXorO(0, str) && checkForXorO(1, str) && checkForXorO(2, str){
+            return true
+        }
+        if checkForXorO(3, str) && checkForXorO(4, str) && checkForXorO(5, str){
+            return true
+        }
+        if checkForXorO(6, str) && checkForXorO(7, str) && checkForXorO(8, str){
+            return true
+        }
         return false
+    }
+    //    Check for XORO
+    func checkForXorO(_ index: Int, _ xORo: String) -> Bool{
+        return self.boardValueas[index] == xORo
     }
 }
 

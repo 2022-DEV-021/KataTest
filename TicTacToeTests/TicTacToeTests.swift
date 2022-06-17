@@ -34,14 +34,38 @@ class TicTacToeTests: XCTestCase {
         XCTAssertNotEqual(currentValue, expectedValue)
     }
     
-//    TODO: If all nine squares are filled and neither player has three in a row, the game is a draw.
+//  If all nine squares are filled and neither player has three in a row, the game is a draw.
     func testIsGameDraw(){
         self.sut = ViewController()
         self.sut.boardValueas = ["X", "X", "O",
                                  "O", "X", "X",
                                  "X", "O", "O"]
-        XCTAssertFalse(self.sut.checkForVictory("X"))
-        XCTAssertFalse(self.sut.checkForVictory("O"))
-        
+        XCTAssertTrue(self.sut.checkForVictory("X") || self.sut.checkForVictory("O"))
+    }
+//  Able to draw three X’s or O's in a row, that player wins
+    
+    // test for cross horizontal Victory
+    func testCrossHorizontalVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "X", "X",
+                                 "X", "O", "O",
+                                 "O", "X", "O"]
+        XCTAssert(self.sut.checkForVictory("X"))
+    }
+    // test for cross vertical Victory
+    func testCrossVerticalVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "O", "X",
+                                 "X", "O", "O",
+                                 "X", "X", "O"]
+        XCTAssert(self.sut.checkForVictory("X"))
+    }
+    // test for cross diagonal Victory
+    func testCrossDiagonallyVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "O", "X",
+                                 "O", "X", "O",
+                                 "X", "X", "O"]
+        XCTAssert(self.sut.checkForVictory("X"))
     }
 }
