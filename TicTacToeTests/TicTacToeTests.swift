@@ -10,6 +10,7 @@ import XCTest
 
 class TicTacToeTests: XCTestCase {
     
+    
     //
     var sut: ViewController!
     
@@ -40,7 +41,7 @@ class TicTacToeTests: XCTestCase {
         self.sut.boardValueas = ["X", "X", "O",
                                  "O", "X", "X",
                                  "X", "O", "O"]
-        XCTAssertTrue(self.sut.checkForVictory("X") || self.sut.checkForVictory("O"))
+        XCTAssertFalse(self.sut.checkForVictory("X") && self.sut.checkForVictory("O"))
     }
 //  Able to draw three X’s or O's in a row, that player wins
     
@@ -77,5 +78,20 @@ class TicTacToeTests: XCTestCase {
                                  "X", "O", "O"]
         XCTAssert(self.sut.checkForVictory("O"))
     }
-    
+    // test for cross diagonal Victory
+    func testCrossDiagonalVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["X", "O", "X",
+                                 "O", "X", "O",
+                                 "X", "X", "O"]
+        XCTAssert(self.sut.checkForVictory("X"))
+    }
+    // test for dot diagonal Victory
+    func testDotDiagonalVictory(){
+        self.sut = ViewController()
+        self.sut.boardValueas = ["O", "X", "X",
+                                 "O", "O", "X",
+                                 "X", "O", "O"]
+        XCTAssert(self.sut.checkForVictory("O"))
+    }
 }
