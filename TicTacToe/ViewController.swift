@@ -87,6 +87,8 @@ class ViewController: UIViewController {
                 sender.setTitle(CROSS, for: .normal)
                 currentTurn = Turn.Dot
             }
+            //            Players cannot play on a played position.
+            sender.isEnabled = false
         }
     }
     
@@ -113,7 +115,7 @@ class ViewController: UIViewController {
         if checkForXorO(6, str) && checkForXorO(7, str) && checkForXorO(8, str){
             return true
         }
-//      str is either X or O though we need to check vertical positions(location) and X or O
+        //      str is either X or O though we need to check vertical positions(location) and X or O
         if checkForXorO(0, str) && checkForXorO(3, str) && checkForXorO(6, str)
         {
             return true
@@ -127,7 +129,7 @@ class ViewController: UIViewController {
             return true
         }
         
-//      str is either X or O though we need to check diagonal positions(location) and X or O
+        //      str is either X or O though we need to check diagonal positions(location) and X or O
         if checkForXorO(0, str) && checkForXorO(4, str) && checkForXorO(8, str)
         {
             return true
@@ -136,41 +138,46 @@ class ViewController: UIViewController {
         {
             return true
         }
-//        Draw match
+        //        Draw match
         return false
     }
     
-//    Check for X or O
+    //    Check for X or O
     func checkForXorO(_ index: Int, _ xORo: String) -> Bool{
         return self.boardValueas[index] == xORo
     }
     
     
-//    Once player won the match or draw then, need to show alert message and reset the game to play again
+    //    Once player won the match or draw then, need to show alert message and reset the game to play again
     func alertForWinnerandReset(msg: String){
         let resetAlert = UIAlertController(title: "Reset", message: "\(msg)", preferredStyle: .alert)
         
         resetAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-//            Reset the board values
+            //            Reset the board values
             self.resetBoardValues()
         }))
         resetAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         }))
         self.present(resetAlert, animated: true)
     }
-//    reset the board and board values though player can play again
+    //    reset the board and board values though player can play again
     func resetBoardValues(){
         self.initBoardValues()
         self.resetBoard()
     }
     func resetBoard(){
+        for btn in board{
+            btn.setTitle(nil, for: .normal)
+            //            Players cannot play on a played position. - enable button action
+            btn.isEnabled = true
+        }
         if secondTurn == Turn.Dot{
             secondTurn = Turn.Cross
         }
         else if secondTurn == Turn.Cross{
             secondTurn = Turn.Dot
         }
-//        X always goes first.
+        //        X always goes first.
         currentTurn = Turn.Cross
     }
 }
