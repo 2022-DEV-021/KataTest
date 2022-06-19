@@ -1,6 +1,6 @@
 # KataTest
 
-How to Run:
+# How to Run:
 
 For running the project, follow the following steps:
 1. Make sure you are on a mac and have the latest Xcode (currently Xcode Version 13.3.1 (13E500a)).
@@ -11,9 +11,9 @@ For running the project, follow the following steps:
 6. If you want to test only test cases then, open TicTacToeTests file and run all together or each test case individually.
 
 
-References:
+#References:
 
 1. https://www.essentialdeveloper.com/
 2. https://www.essentialdeveloper.com/articles/s01e24-tdd-tomato-21-running-the-complete-swift-quiz-app-for-the-first-time
 3. https://swdevnotes.com/swift/2021/test-driven-development-in-swiftui-part-1/
-4. https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29 
+4. https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
