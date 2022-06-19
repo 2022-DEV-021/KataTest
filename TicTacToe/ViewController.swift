@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         case Dot
         case Cross
     }
+    //    Players cannot play on a played position.
     var currentTurn = Turn.Cross
     var secondTurn = Turn.Dot
     
@@ -58,23 +59,22 @@ class ViewController: UIViewController {
         // Check for Draw
         if(fullBoard()){
             print("Draw\(self.fullBoard())")
-            self.alertForWinnerandReset(msg: "Cross won the match")
+            self.alertForWinnerandReset(msg: "Match draw..!")
         }
         // Check for CROSS
         if checkForVictory(CROSS){
             print("Cross won the match")
-            self.alertForWinnerandReset(msg: "Dot won the match")
+            self.alertForWinnerandReset(msg: "Cross won the match")
         }
         // Check for DOT
         if checkForVictory(DOT){
             print("Dot won the match")
-            self.alertForWinnerandReset(msg: "Match Draw...!")
+            self.alertForWinnerandReset(msg: "Dot won the match")
         }
     }
     
     //    what if X goes first. It should accept X as first move
     func addValueToBoard(sender: UIButton){
-        print("kk:\(sender.titleLabel)")
         //        for the first time boardValue will be empty
         if(self.boardValueas[sender.tag] == ""){
             if(currentTurn == Turn.Dot){
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
     
     //    Once player won the match or draw then, need to show alert message and reset the game to play again
     func alertForWinnerandReset(msg: String){
-        let resetAlert = UIAlertController(title: "Reset", message: "\(msg)", preferredStyle: .alert)
+        let resetAlert = UIAlertController(title: "Play Again?", message: "\(msg)", preferredStyle: .alert)
         
         resetAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             //            Reset the board values
