@@ -77,4 +77,5 @@ class TicTacToeTests: XCTestCase {
                                  "X", "O", "O"]
         XCTAssert(self.sut.checkForVictory("O"))
     }
+    
 }
