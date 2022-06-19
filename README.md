@@ -10,7 +10,12 @@ For running the project, follow the following steps:
 5. For a better experience, use an iPhone Simulator.
 6. If you want to test only test cases then, open TicTacToeTests file and run all together or each test case individually.
 
+**Note**: I have used UIKIt to design game template(Recommend to use iPhone simulator).
+
 # Screenshots:
+
+<img width="352" alt="Screenshot 2022-06-19 at 10 42 52 PM" src="https://user-images.githubusercontent.com/100867356/174499726-b935a848-e400-425b-a6a2-29290252bf63.png">
+<img width="349" alt="Screenshot 2022-06-19 at 10 41 11 PM" src="https://user-images.githubusercontent.com/100867356/174499727-b9210b8b-1605-432b-aa73-6d8bcaa464da.png">
 
 
 # References:
