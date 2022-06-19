@@ -81,7 +81,7 @@ class ViewController: UIViewController {
                 self.boardValueas[sender.tag] = DOT
                 sender.setTitle(DOT, for: .normal)
                 currentTurn = Turn.Cross
-                //                Always X goes first
+                //      Always X goes first
             }else if(currentTurn == Turn.Cross){
                 self.boardValueas[sender.tag] = CROSS
                 sender.setTitle(CROSS, for: .normal)
@@ -152,10 +152,25 @@ class ViewController: UIViewController {
         
         resetAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
 //            Reset the board values
+            self.resetBoardValues()
         }))
         resetAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         }))
         self.present(resetAlert, animated: true)
     }
-    
+//    reset the board and board values though player can play again
+    func resetBoardValues(){
+        self.initBoardValues()
+        self.resetBoard()
+    }
+    func resetBoard(){
+        if secondTurn == Turn.Dot{
+            secondTurn = Turn.Cross
+        }
+        else if secondTurn == Turn.Cross{
+            secondTurn = Turn.Dot
+        }
+//        X always goes first.
+        currentTurn = Turn.Cross
+    }
 }
