@@ -58,14 +58,17 @@ class ViewController: UIViewController {
         // Check for Draw
         if(fullBoard()){
             print("Draw\(self.fullBoard())")
+            self.alertForWinnerandReset(msg: "Cross won the match")
         }
         // Check for CROSS
         if checkForVictory(CROSS){
             print("Cross won the match")
+            self.alertForWinnerandReset(msg: "Dot won the match")
         }
         // Check for DOT
         if checkForVictory(DOT){
             print("Dot won the match")
+            self.alertForWinnerandReset(msg: "Match Draw...!")
         }
     }
     
@@ -141,4 +144,18 @@ class ViewController: UIViewController {
     func checkForXorO(_ index: Int, _ xORo: String) -> Bool{
         return self.boardValueas[index] == xORo
     }
+    
+    
+//    Once player won the match or draw then, need to show alert message and reset the game to play again
+    func alertForWinnerandReset(msg: String){
+        let resetAlert = UIAlertController(title: "Reset", message: "\(msg)", preferredStyle: .alert)
+        
+        resetAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+//            Reset the board values
+        }))
+        resetAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+        self.present(resetAlert, animated: true)
+    }
+    
 }
