@@ -10,8 +10,10 @@ For running the project, follow the following steps:
 5. For a better experience, use an iPhone Simulator.
 6. If you want to test only test cases then, open TicTacToeTests file and run all together or each test case individually.
 
+# Screenshots:
 
-#References:
+
+# References:
 
 1. https://www.essentialdeveloper.com/
 2. https://www.essentialdeveloper.com/articles/s01e24-tdd-tomato-21-running-the-complete-swift-quiz-app-for-the-first-time
